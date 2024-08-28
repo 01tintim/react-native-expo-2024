@@ -2,9 +2,9 @@ import { Slot, Stack } from "expo-router";
 import { AppProvider } from "../hooks";
 
 export default function Layout() {
-    return (
+  return (
     <AppProvider>
-             <Stack />
-           </AppProvider>
-    );
+      <Stack />
+    </AppProvider>
+  );
 }
