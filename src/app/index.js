@@ -10,7 +10,6 @@ export default function App() {
   const handleEntrarSuper = async () => {
     try {
       await signIn({email: "super@email.com", password: "Super123!" })
-      router.replace("(/)");
     } catch (error) {
       
     }

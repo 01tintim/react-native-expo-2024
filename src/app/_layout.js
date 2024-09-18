@@ -9,26 +9,23 @@ const StackLayout = () => {
   const segments = useSegments();
 
   useEffect(() => {
-    const inAuthGroup = segments[0] === "(protected)";
 
-    if (!user?.autenticated && inAuthGroup) {
+    if (user.autenticated === true) {
+      router.replace("(protected)");
+    } else {
       if (router.canGoBack()) {
         router.back();
-        router.back();
+        if (router.canGoBack()) router.back();
       } else {
-        router.replace("/(protected)");
-      }
-    } else {
-      if (user?.autenticated === true) { 
-        router.replace("(protected)");
+        router.replace("/");
       }
     }
   }, [user]);
 
   return (
     <Stack>
-        <Stack.Screen name="index" Options={{herderShown: false}}/>
-        <Stack.Screen name="(protected)" Options={{herderShown: false}} />
+      <Stack.Screen name="index" Options={{ herderShown: false }} />
+      <Stack.Screen name="(protected)" Options={{ herderShown: false }} />
     </Stack>
   );
 
@@ -41,7 +38,7 @@ export default function Layout() {
 
     return (
       <AppProvider>
-       <StackLayout />
+        <StackLayout />
       </AppProvider>
     );
   }
