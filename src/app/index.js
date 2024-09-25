@@ -9,11 +9,11 @@ export default function App() {
 
   const handleEntrarSuper = async () => {
     try {
-      await signIn({email: "super@email.com", password: "Super123!" })
+      await signIn({email: "super@email.com", password: "A123456a!" })
     } catch (error) {
-      
+         console.log(error)
     }
-  }
+  };
   
   return (
     <View style={styles.container}>
