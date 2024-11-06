@@ -10,21 +10,17 @@ const StackLayout = () => {
 
   useEffect(() => {
 
-    if (user.autenticated === true) {
-      router.replace("(protected)");
+    if (!user?.autenticated){
+      router.replace("signin")
     } else {
-      if (router.canGoBack()) {
-        router.back();
-        if (router.canGoBack()) router.back();
-      } else {
-        router.replace("/");
-      }
+      router.replace("(protected)");
     }
   }, [user]);
 
   return (
     <Stack>
-      <Stack.Screen name="index" Options={{ herderShown: false }} />
+      <Stack.Screen name="signin" Options={{ herderShown: false }} />
+      <Stack.Screen name="about" Options={{ herderShown: false }} />
       <Stack.Screen name="(protected)" Options={{ herderShown: false }} />
     </Stack>
   );
