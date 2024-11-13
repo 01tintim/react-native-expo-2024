@@ -45,9 +45,6 @@ export function AuthProvider({ children }) {
 
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
-    console.log(!response);
-
-
     if (!response){
       setUser({
         autenticated: false,
@@ -80,9 +77,7 @@ export function AuthProvider({ children }) {
   };
 
 
-  useEffect(() => {
-    console.log("AuthProvider: ", user);
-  }, [user]);
+
 
   if (user.autenticated === null) {
     return (
