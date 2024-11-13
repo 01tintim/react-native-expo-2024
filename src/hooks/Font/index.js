@@ -28,6 +28,8 @@ export function FontProvider({ children }) {
             </View>
         );
     }
+
+    
     return (<FontContext.Provider value={{ loaded }}>{children}</FontContext.Provider>)
 }
 
